@@ -1,0 +1,812 @@
+
+/* =========================================
+   VARIABLES Y CONFIGURACIÓN GENERAL
+========================================= */
+
+:root {
+    --color-primary: #0d2238;
+    --color-secondary: #153b54;
+    --color-accent: #39a900;
+    --color-accent-dark: #278000;
+
+    --color-background: #f5f7f8;
+    --color-white: #ffffff;
+    --color-text: #263746;
+    --color-muted: #718096;
+    --color-border: #e3e9ed;
+
+    --font-main: "Segoe UI", Arial, sans-serif;
+
+    --container-width: 1160px;
+    --radius-card: 16px;
+
+    --shadow-card: 0 8px 28px rgba(13, 34, 56, 0.07);
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: min(90%, var(--container-width));
+    margin-inline: auto;
+}
+
+.section {
+    padding: 90px 0;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 18px 0;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+}
+
+.brand-text strong {
+    font-size: 15px;
+}
+
+.brand-text small {
+    color: #b8c8d5;
+    font-size: 12px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.navigation a {
+    color: #d8e2e9;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+.navigation a:hover {
+    color: var(--color-accent);
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 110px 0;
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(57, 169, 0, 0.18),
+            transparent 30%
+        ),
+        linear-gradient(
+            120deg,
+            var(--color-primary),
+            var(--color-secondary)
+        );
+    color: var(--color-white);
+}
+
+.hero-content {
+    max-width: var(--container-width);
+}
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: var(--color-accent);
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    max-width: 760px;
+    margin-bottom: 24px;
+    font-size: clamp(38px, 6vw, 64px);
+    line-height: 1.1;
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--color-accent);
+}
+
+.hero p {
+    max-width: 650px;
+    margin-bottom: 32px;
+    color: #d4e0e8;
+    font-size: 17px;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 14px 24px;
+    border-radius: 8px;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    font-size: 14px;
+    font-weight: 700;
+    transition: background-color 0.2s ease,
+                transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-accent-dark);
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   ENCABEZADO DE SECCIONES
+========================================= */
+
+.section-heading {
+    max-width: 700px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.section-heading h2,
+.about-text h2 {
+    margin-bottom: 16px;
+    color: var(--color-primary);
+    font-size: clamp(28px, 4vw, 38px);
+    line-height: 1.2;
+}
+
+.section-heading p {
+    color: var(--color-muted);
+    font-size: 15px;
+}
+
+
+/* =========================================
+   TARJETAS DE COMPETENCIAS
+========================================= */
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.competency-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 310px;
+    padding: 32px;
+    overflow: hidden;
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    background-color: var(--color-white);
+
+    box-shadow: var(--shadow-card);
+
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+}
+
+.competency-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(57, 169, 0, 0.5);
+    box-shadow: 0 14px 35px rgba(13, 34, 56, 0.12);
+}
+
+
+
+.card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 80px;
+    height: 80px;
+    margin-bottom: 24px;
+
+    overflow: hidden;
+}
+
+.card-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.competency-card h3 {
+    max-width: 90%;
+    margin-bottom: 14px;
+    color: var(--color-primary);
+    font-size: 20px;
+    line-height: 1.35;
+}
+
+.competency-card p {
+    margin-bottom: 24px;
+    color: var(--color-muted);
+    font-size: 14px;
+}
+
+.competency-code {
+    margin-top: auto;
+    padding: 7px 12px;
+    border-radius: 6px;
+    background-color: #f0f4f6;
+    color: var(--color-secondary);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   SOBRE EL PROGRAMA
+========================================= */
+
+.about {
+    background-color: #edf2f4;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr;
+    align-items: center;
+    gap: 70px;
+}
+
+.about-text h2 {
+    max-width: 550px;
+}
+
+.about-text p {
+    margin-bottom: 18px;
+    color: #61717e;
+    font-size: 15px;
+}
+
+.about-highlight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 42px 28px;
+
+    border-radius: var(--radius-card);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+
+    text-align: center;
+    box-shadow: var(--shadow-card);
+}
+
+.highlight-label {
+    color: #aabcc9;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-highlight strong {
+    margin: 15px 0 4px;
+    color: var(--color-accent);
+    font-size: 60px;
+    line-height: 1;
+}
+
+.about-highlight > span:nth-of-type(2) {
+    font-size: 14px;
+}
+
+.highlight-divider {
+    width: 50px;
+    height: 3px;
+    margin: 26px 0;
+    border-radius: 5px;
+    background-color: var(--color-accent);
+}
+
+.highlight-institution {
+    color: #d2dce3;
+    font-size: 13px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    padding: 28px 0;
+    background-color: #091827;
+    color: var(--color-white);
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.footer-content strong {
+    font-size: 15px;
+}
+
+.footer-content p {
+    color: #aab8c4;
+    font-size: 12px;
+}
+
+.footer-copy {
+    text-align: right;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 800px) {
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-highlight {
+        max-width: 450px;
+        width: 100%;
+        margin-inline: auto;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .section {
+        padding: 65px 0;
+    }
+
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navigation {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .hero {
+        padding: 80px 0;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .competency-card {
+        min-height: 280px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-copy {
+        text-align: left;
+    }
+
+}
+
+
+
+/* =========================================
+   PÁGINA DEL PROGRAMA ADSO
+   ========================================= */
+
+/* Texto introductorio de las secciones */
+
+.section-heading > p {
+    max-width: 760px;
+    margin: 16px auto 0;
+    line-height: 1.7;
+    color: var(--text-secondary, #64748b);
+}
+
+
+/* Tarjetas de información */
+
+.competency-card > strong {
+    display: block;
+    margin: 12px 0;
+    color: var(--primary-color, #17365d);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+
+/* Separación entre bloques informativos */
+
+.about .cards-grid {
+    margin-top: 35px;
+}
+
+
+/* Bloques de contenido con dos columnas */
+
+.about-content {
+    align-items: center;
+}
+
+
+/* Enlaces de navegación dentro del contenido */
+
+.section-heading > a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+    padding: 12px 22px;
+
+    background-color: var(--primary-color, #17365d);
+    color: #ffffff;
+
+    text-decoration: none;
+    font-weight: 600;
+
+    border-radius: 8px;
+    transition: background-color 0.25s ease;
+}
+
+.section-heading > a:hover {
+    background-color: var(--primary-dark, #102744);
+}
+
+
+/* Estado de la página actual en la navegación */
+
+.navigation a[aria-current="page"] {
+    font-weight: 700;
+}
+
+
+/* Accesibilidad: navegación con teclado */
+
+.navigation a:focus-visible,
+.section-heading > a:focus-visible {
+    outline: 3px solid var(--accent-color, #39a900);
+    outline-offset: 4px;
+}
+
+
+/* Adaptación para dispositivos móviles */
+
+@media (max-width: 768px) {
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .about-highlight {
+        width: 100%;
+    }
+
+    .section-heading > p {
+        text-align: left;
+    }
+
+    .section-heading > a {
+        width: 100%;
+    }
+
+}
+
+
+
+/* =========================================
+   TARJETA DESTACADA DE PRESENTACIÓN
+   ========================================= */
+
+#presentacion .about-highlight {
+    position: relative;
+    padding: 32px;
+    overflow: hidden;
+    align-self: stretch;
+    background: linear-gradient(145deg, #17365d, #102744);
+    border: none;
+    border-radius: 16px;
+    color: #ffffff;
+    box-shadow: 0 12px 30px rgba(23, 54, 93, 0.14);
+}
+
+#presentacion .about-highlight::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    right: -65px;
+    top: -65px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 20px rgba(255, 255, 255, 0.025),
+        0 0 0 40px rgba(255, 255, 255, 0.025);
+}
+
+.highlight-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    margin-bottom: 28px;
+    background: rgba(57, 169, 0, 0.18);
+    border: 1px solid rgba(57, 169, 0, 0.4);
+    border-radius: 13px;
+    color: #70d33d;
+    font-size: 23px;
+}
+
+.highlight-label {
+    display: block;
+    margin-bottom: 12px;
+    color: #91d66e;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+#presentacion .about-highlight h3 {
+    margin: 0 0 16px;
+    color: #ffffff;
+    font-size: 1.65rem;
+    line-height: 1.3;
+}
+
+#presentacion .about-highlight p {
+    margin: 0;
+    color: #d6dfeb;
+    font-size: 0.96rem;
+    line-height: 1.8;
+}
+
+.highlight-divider {
+    width: 45px;
+    height: 3px;
+    margin: 28px 0 18px;
+    background: #39a900;
+    border-radius: 5px;
+}
+
+.highlight-footer {
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+@media (max-width: 768px) {
+    #presentacion .about-highlight {
+        padding: 26px;
+    }
+}
+
+/* =========================================
+   PRESENTACIÓN DEL PROGRAMA ADSO
+   ========================================= */
+
+/* Contenedor de presentación */
+#presentacion .about-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);
+    gap: 40px;
+    align-items: start;
+}
+
+/* Título principal */
+#presentacion h2 {
+    margin-bottom: 26px;
+
+    color: var(--primary-color, #17365d);
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+}
+
+/* Párrafos */
+#presentacion .about-text p {
+    margin: 45px 10px 20px;
+
+    color: var(--text-secondary, #64748b);
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.85;
+
+    text-align: justify;
+}
+
+/* Evitar margen adicional en el último párrafo */
+#presentacion .about-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Adaptación para móviles */
+@media (max-width: 768px) {
+    #presentacion .about-content {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    #presentacion h2 {
+        font-size: 1.7rem;
+        margin-bottom: 20px;
+    }
+
+    #presentacion .about-text p {
+        font-size: 1rem;
+        line-height: 1.75;
+        margin-bottom: 16px;
+    }
+}
+
+
+
+/* =========================================
+   TARJETAS - PROPÓSITO DE LA FORMACIÓN
+   ========================================= */
+
+/* Distribución de las tarjetas */
+#proposito .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+/* Estructura general */
+#proposito .purpose-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+
+    padding: 12px 28px 26px;
+    margin: 0;
+
+    text-align: left;
+}
+
+/* Iconos de las tarjetas */
+#proposito .purpose-card .card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+    height: 46px;
+
+    margin: 0 0 18px;
+    border-radius: 10px;
+
+    background-color: rgba(57, 169, 0, 0.10);
+    color: #39A900;
+}
+
+/* Icono Font Awesome */
+#proposito .purpose-card .card-icon i {
+    font-size: 21px;
+    color: #39A900;
+}
+
+
+/* Descripción */
+#proposito .purpose-card p {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    color: var(--text-secondary, #64748b);
+    font-size: 0.95rem;
+    line-height: 1.75;
+
+    text-align: justify;
+}
+
+/* Adaptación para dispositivos móviles */
+@media (max-width: 768px) {
+
+    #proposito .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    #proposito .purpose-card {
+        height: auto;
+        min-height: 0;
+        padding: 22px;
+    }
+
+    #proposito .purpose-card .card-icon {
+        margin-bottom: 15px;
+    }
+
+}
+
+/* Separación entre las etapas y la intensidad horaria total */
+.about .about-content {
+    margin-top: 35px;
+}
