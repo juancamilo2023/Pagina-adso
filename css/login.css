@@ -1,0 +1,717 @@
+
+/* =====================================================
+   LOGIN ADSO - SENA
+   Hoja de estilos exclusiva para inicio de sesión
+===================================================== */
+
+
+/* =====================================================
+   1. CONFIGURACIÓN GENERAL
+===================================================== */
+
+.login-layout {
+    position: relative;
+    isolation: isolate;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #0d2238;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+
+/* =====================================================
+   2. IMAGEN DE FONDO
+===================================================== */
+
+.login-layout::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+
+    background-image: url("../assets/img/Campus SENA ADSO_ Futuro Digital.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    animation: backgroundZoom 25s ease-in-out infinite alternate;
+}
+
+
+/* Capa de contraste sobre la fotografía */
+
+.login-layout::after {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    background: rgba(13, 34, 56, 0.20);
+
+    pointer-events: none;
+}
+
+
+
+/* =====================================================
+   3. NAVEGACIÓN SUPERIOR OCULTA - DISEÑO MEJORADO
+===================================================== */
+
+.login-layout .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    width: 100%;
+
+    /* Dimensiones compactas */
+    padding: 11px 0;
+
+    /* Fondo sólido para mejorar la legibilidad */
+    background: rgba(9, 27, 44, 0.98);
+
+    border-bottom: 1px solid rgba(57, 169, 0, 0.55);
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    /* Ocultar dejando una pequeña zona activa */
+    transform: translateY(calc(-100% + 5px));
+
+    transition: transform 0.35s ease;
+}
+
+
+/* Mostrar al acercar el cursor */
+
+.login-layout .header:hover,
+.login-layout .header:focus-within {
+    transform: translateY(0);
+}
+
+
+/* Contenedor de navegación */
+
+.login-layout .header-content {
+    min-height: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Distribución de enlaces */
+
+.login-layout .navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 34px;
+}
+
+
+/* Enlaces */
+
+.login-layout .navigation a {
+    position: relative;
+
+    padding: 5px 2px;
+
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+
+    text-decoration: none;
+
+    transition: color 0.25s ease;
+}
+
+
+/* Estado hover */
+
+.login-layout .navigation a:hover {
+    color: #65d32e;
+}
+
+
+/* Indicador inferior */
+
+.login-layout .navigation a::after {
+    content: "";
+
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: #39a900;
+    border-radius: 2px;
+
+    transition: width 0.3s ease;
+}
+
+.login-layout .navigation a:hover::after {
+    width: 100%;
+}
+
+
+/* =====================================================
+   RESPONSIVE - NAVEGACIÓN
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .login-layout .header {
+        padding: 10px 0;
+    }
+
+    .login-layout .header-content {
+        min-height: 30px;
+    }
+
+    .login-layout .navigation {
+        gap: 20px;
+    }
+
+    .login-layout .navigation a {
+        font-size: 12px;
+    }
+
+}
+
+/* =====================================================
+   4. CONTENIDO PRINCIPAL
+===================================================== */
+
+.login-layout .login-page {
+    flex: 1;
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px 20px;
+
+    background: transparent;
+}
+
+
+/* =====================================================
+   5. TARJETA DEL FORMULARIO
+===================================================== */
+
+.login-card {
+    position: relative;
+
+    width: 100%;
+    max-width: 430px;
+
+    padding: 42px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 18px;
+
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    animation: loginFadeIn 0.8s ease both;
+}
+
+
+/* =====================================================
+   6. ENCABEZADO DEL FORMULARIO
+===================================================== */
+
+.login-card h1 {
+    margin-bottom: 12px;
+
+    color: #0d2238;
+
+    font-size: 29px;
+    font-weight: 700;
+
+    text-align: center;
+}
+
+
+/* Descripción */
+
+.login-card > p:first-of-type {
+    margin-bottom: 30px;
+
+    color: #718096;
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   7. CAMPOS DEL FORMULARIO
+===================================================== */
+
+.login-card form > p:not(.remember-option):not(.login-action) {
+    margin-bottom: 22px;
+}
+
+
+/* Etiquetas */
+
+.login-card form label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #263746;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* Entradas de correo y contraseña */
+
+.login-card form input[type="email"],
+.login-card form input[type="password"] {
+    width: 100%;
+    height: 48px;
+
+    padding: 0 14px;
+
+    color: #263746;
+    background: #ffffff;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    border: 1px solid #dce3e8;
+    border-radius: 8px;
+
+    outline: none;
+
+    transition: border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+
+/* Texto de ayuda */
+
+.login-card form input::placeholder {
+    color: #a0aab4;
+}
+
+
+/* Estado de enfoque */
+
+.login-card form input[type="email"]:focus,
+.login-card form input[type="password"]:focus {
+    border-color: #39a900;
+
+    box-shadow: 0 0 0 3px rgba(57, 169, 0, 0.12);
+}
+
+
+/* =====================================================
+   8. OPCIÓN RECORDARME
+===================================================== */
+
+.login-card .remember-option {
+    margin-bottom: 25px;
+}
+
+.login-card .remember-option label {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 0;
+
+    color: #526170;
+
+    font-size: 13px;
+    font-weight: 400;
+
+    cursor: pointer;
+}
+
+.login-card .remember-option input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+
+    margin: 0;
+
+    accent-color: #39a900;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   9. BOTÓN DE ACCESO
+===================================================== */
+
+.login-card .login-action {
+    margin-top: 5px;
+}
+
+.login-card .login-action button {
+    width: 100%;
+    height: 49px;
+
+    color: #ffffff;
+    background: #0d2238;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: background 0.3s ease,
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+
+/* Efecto hover */
+
+.login-card .login-action button:hover {
+    background: #278000;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 15px rgba(39, 128, 0, 0.2);
+}
+
+
+/* Accesibilidad del botón */
+
+.login-card .login-action button:focus-visible {
+    outline: 3px solid rgba(57, 169, 0, 0.4);
+    outline-offset: 3px;
+}
+
+
+/* =====================================================
+   10. ENLACE DE REGISTRO
+===================================================== */
+
+.login-card .register-link {
+    margin-top: 27px;
+
+    color: #718096;
+
+    font-size: 13px;
+
+    text-align: center;
+}
+
+.login-card .register-link a {
+    color: #278000;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+.login-card .register-link a:hover {
+    color: #0d2238;
+
+    text-decoration: underline;
+}
+
+
+/* =====================================================
+   11. FOOTER VISUAL SOBRE LA FOTOGRAFÍA
+===================================================== */
+
+.login-layout .footer {
+    position: absolute;
+    bottom: 28px;
+    left: 32px;
+    z-index: 2;
+
+    width: auto;
+    padding: 0;
+
+    background: transparent;
+
+    border: none;
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+
+/* Distribución de elementos */
+
+.login-layout .footer-content {
+    min-height: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 24px;
+
+    padding: 0;
+}
+
+
+/* Elementos del footer */
+
+.footer-feature {
+    min-width: 105px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    color: #ffffff;
+
+    text-align: center;
+}
+
+
+/* Iconos SVG */
+
+.footer-feature svg {
+    width: 43px;
+    height: 43px;
+
+    fill: none;
+
+    stroke: #ffffff;
+    stroke-width: 1.7;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* Texto del footer */
+
+.footer-feature span {
+    color: #ffffff;
+
+    font-size: 13px;
+    line-height: 1.4;
+    font-weight: 500;
+
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+
+/* Separadores */
+
+.footer-divider {
+    width: 2px;
+    height: 75px;
+
+    background: rgba(255, 255, 255, 0.85);
+}
+
+
+/* =====================================================
+   12. ANIMACIONES
+===================================================== */
+
+@keyframes backgroundZoom {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.08);
+    }
+
+}
+
+
+@keyframes loginFadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =====================================================
+   13. DISEÑO RESPONSIVE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    /* Navegación */
+
+    .login-layout .navigation {
+        gap: 24px;
+    }
+
+
+    /* Formulario */
+
+    .login-layout .login-page {
+        padding: 40px 18px;
+    }
+
+    .login-card {
+        max-width: 400px;
+
+        padding: 35px 28px;
+    }
+
+
+    /* Footer */
+
+    .login-layout .footer {
+        left: 20px;
+        bottom: 20px;
+    }
+
+    .login-layout .footer-content {
+        gap: 16px;
+    }
+
+    .footer-feature {
+        min-width: 90px;
+    }
+
+    .footer-feature svg {
+        width: 37px;
+        height: 37px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    /* Navegación */
+
+    .login-layout .navigation {
+        gap: 16px;
+    }
+
+    .login-layout .navigation a {
+        font-size: 12px;
+    }
+
+
+    /* Formulario */
+
+    .login-card {
+        padding: 30px 22px;
+
+        border-radius: 14px;
+    }
+
+    .login-card h1 {
+        font-size: 25px;
+    }
+
+
+    /* Footer */
+
+    .login-layout .footer {
+        position: relative;
+
+        bottom: auto;
+        left: auto;
+
+        width: 100%;
+
+        padding: 15px 10px 20px;
+    }
+
+    .login-layout .footer-content {
+        justify-content: center;
+
+        gap: 12px;
+    }
+
+    .footer-feature {
+        min-width: 85px;
+
+        gap: 6px;
+    }
+
+    .footer-feature svg {
+        width: 34px;
+        height: 34px;
+    }
+
+    .footer-feature span {
+        font-size: 11px;
+    }
+
+    .footer-divider {
+        height: 60px;
+    }
+
+}
+
+
+/* =====================================================
+   14. ACCESIBILIDAD
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .login-layout::before,
+    .login-card {
+        animation: none;
+    }
+
+    .login-layout .header,
+    .login-layout .navigation a,
+    .login-layout .navigation a::after,
+    .login-card input,
+    .login-card button,
+    .login-card .register-link a {
+        transition: none;
+    }
+
+}

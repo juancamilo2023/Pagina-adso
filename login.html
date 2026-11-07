@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Iniciar sesión | ADSO - SENA</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body class="login-layout">
+
+    <!-- Encabezado y navegación -->
+   <header class="header">
+        <div class="container header-content">
+
+            <nav class="navigation" aria-label="Navegación principal">
+                <a href="index.html">Inicio</a>
+                <a href="programa.html">Programa</a>
+                <a href="index.html#competencias">Competencias</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- Contenido principal -->
+    <main class="login-page">
+
+        <section class="login-card">
+
+            <h1>Iniciar sesión</h1>
+
+            <p>Debes ingresar tu correo y tu contraseña</p>
+
+            <form action="index.html" method="get">
+
+                <p>
+                    <label for="correo">Correo electrónico:</label>
+
+                    <input
+                        type="email"
+                        id="correo"
+                        name="correo"
+                        placeholder="ejemplo@example.com"
+                        autocomplete="email"
+                        required
+                    >
+                </p>
+
+                <p>
+                    <label for="clave">Contraseña:</label>
+
+                    <input
+                        type="password"
+                        id="clave"
+                        name="clave"
+                        placeholder="Ingrese su contraseña"
+                        minlength="8"
+                        autocomplete="current-password"
+                        required
+                    >
+                </p>
+
+                <p class="remember-option">
+                    <label for="recordar">
+                        <input
+                            type="checkbox"
+                            id="recordar"
+                            name="recordar"
+                        >
+                        Recordarme
+                    </label>
+                </p>
+
+                <p class="login-action">
+                    <button type="submit">Ingresar</button>
+                </p>
+
+            </form>
+
+            <p class="register-link">
+                ¿No tienes cuenta?
+                <a href="registrarse.html">Registrarse</a>
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- Pie de página -->
+    <footer class="footer">
+
+        <div class="container footer-content">
+
+            <div>
+                <strong>SENA | ADSO</strong>
+
+                <p>
+                    Análisis y Desarrollo de Software
+                </p>
+            </div>
+
+            <p class="footer-copy">
+                © 2026 - Proyecto académico
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

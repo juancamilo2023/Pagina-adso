@@ -1,0 +1,436 @@
+
+/* =========================================================
+   1. CONFIGURACIÓN GENERAL
+   ========================================================= */
+
+.register-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    isolation: isolate;
+    overflow-x: hidden;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #263746;
+    background-color: #0d2238;
+}
+
+/* =========================================================
+   2. FONDO DEL CAMPUS
+   ========================================================= */
+
+.register-layout::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background-image: url("../assets/img/Campus SENA Bajo Cielo Azul.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Capa de contraste */
+
+.register-layout::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: rgba(13, 34, 56, 0.30);
+    pointer-events: none;
+}
+
+/* =========================================================
+   3. CONTENEDOR PRINCIPAL
+   ========================================================= */
+
+.register-page {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 15px;
+}
+
+/* =========================================================
+   4. TARJETA DE REGISTRO
+   ========================================================= */
+
+.register-card {
+    width: 100%;
+    max-width: 530px;
+    padding: 23px 30px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(10px);
+}
+
+/* =========================================================
+   5. ENCABEZADO
+   ========================================================= */
+
+.register-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Icono de identificación */
+
+.sena-logo {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #153b54, #0d2238);
+    border: 2px solid #39a900;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(13, 34, 56, 0.18);
+}
+
+.sena-logo i {
+    font-size: 23px;
+}
+
+/* Título */
+
+.register-header h1 {
+    margin: 0 0 5px;
+    color: #0d2238;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+/* Descripción */
+
+.register-header p {
+    max-width: 400px;
+    margin: 0 auto;
+    color: #718096;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* Separador */
+
+.register-divider {
+    display: block;
+    width: 45px;
+    height: 3px;
+    margin: 12px auto 0;
+    background-color: #39a900;
+    border-radius: 10px;
+}
+
+/* =========================================================
+   6. ESTRUCTURA DEL FORMULARIO
+   ========================================================= */
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Contenedor individual */
+
+.form-group {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Filas de dos columnas */
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+/* =========================================================
+   7. ETIQUETAS Y CAMPOS
+   ========================================================= */
+
+.form-group label {
+    color: #263746;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Entradas y listas desplegables */
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    height: 38px;
+    padding: 0 11px;
+    color: #263746;
+    font-family: inherit;
+    font-size: 12px;
+    background-color: #ffffff;
+    border: 1px solid #d5dde3;
+    border-radius: 7px;
+    outline: none;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* Texto de ayuda */
+
+.form-group input::placeholder {
+    color: #a0aab4;
+}
+
+/* Listas desplegables */
+
+.form-group select {
+    cursor: pointer;
+}
+
+.form-group select:invalid {
+    color: #718096;
+}
+
+.form-group select option {
+    color: #263746;
+}
+
+/* Estado de enfoque */
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #39a900;
+    box-shadow: 0 0 0 3px rgba(57, 169, 0, 0.12);
+}
+
+/* =========================================================
+   8. TÉRMINOS Y CONDICIONES
+   ========================================================= */
+
+.terms-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 2px;
+}
+
+.terms-group input {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    margin: 2px 0 0;
+    accent-color: #39a900;
+    cursor: pointer;
+}
+
+.terms-group label {
+    color: #526170;
+    font-size: 11px;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+/* =========================================================
+   9. BOTÓN DE REGISTRO
+   ========================================================= */
+
+.register-button {
+    width: 100%;
+    min-height: 40px;
+    margin-top: 3px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #39a900, #278000);
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.register-button:hover:not(:disabled) {
+    background: linear-gradient(135deg, #278000, #206900);
+    box-shadow: 0 5px 14px rgba(57, 169, 0, 0.22);
+    transform: translateY(-1px);
+}
+
+.register-button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* =========================================================
+   10. MENSAJES DE VALIDACIÓN
+   ========================================================= */
+
+.register-message {
+    padding: 10px 12px;
+    border-radius: 7px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.register-message.success {
+    color: #206900;
+    background-color: #edf8e8;
+    border: 1px solid #c7e8b8;
+}
+
+.register-message.error {
+    color: #b42318;
+    background-color: #fff1f0;
+    border: 1px solid #f5c2c0;
+}
+
+/* =========================================================
+   11. FOOTER
+   ========================================================= */
+
+.register-layout .footer {
+    width: 100%;
+    padding: 13px 20px;
+    background: rgba(13, 34, 56, 0.48);
+    backdrop-filter: blur(8px);
+}
+
+.register-layout .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+/* Elementos del footer */
+
+.register-layout .footer-feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* Iconos SVG */
+
+.register-layout .footer-feature svg {
+    width: 29px;
+    height: 29px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Separadores */
+
+.register-layout .footer-divider {
+    width: 1px;
+    height: 28px;
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+/* =========================================================
+   12. RESPONSIVE: TABLETAS
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .register-page {
+        padding: 22px 16px;
+    }
+
+    .register-card {
+        max-width: 510px;
+        padding: 23px 25px;
+    }
+
+    .register-layout .footer-content {
+        gap: 20px;
+    }
+
+    .register-layout .footer-feature {
+        gap: 8px;
+        font-size: 11px;
+    }
+}
+
+/* =========================================================
+   13. RESPONSIVE: MÓVILES
+   ========================================================= */
+
+@media (max-width: 520px) {
+
+    .register-page {
+        padding: 18px 12px;
+    }
+
+    .register-card {
+        max-width: 100%;
+        padding: 22px 18px;
+    }
+
+    .register-header h1 {
+        font-size: 21px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .register-layout .footer {
+        padding: 14px 10px;
+    }
+
+    .register-layout .footer-content {
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+
+    .register-layout .footer-feature {
+        font-size: 10px;
+    }
+
+    .register-layout .footer-feature svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .register-layout .footer-divider {
+        height: 22px;
+    }
+}
+
+/* =========================================================
+   14. ACCESIBILIDAD
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

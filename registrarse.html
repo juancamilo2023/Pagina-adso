@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Registro de aprendices del programa Análisis y Desarrollo de Software del SENA.">
+
+    <title>Registro de aprendices | ADSO - SENA</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/registrarse.css">
+     <!-- Font Awesome: biblioteca de iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body class="register-layout">
+
+    <main class="register-page">
+
+        <section class="register-card" aria-labelledby="register-title">
+
+            <div class="register-header">
+
+                <<div class="sena-logo" aria-hidden="true">
+                    <i class="fa-solid fa-id-card"></i>
+                </div>
+
+                <h1 id="register-title">Crear tu cuenta</h1>
+
+                <p>
+                    Completa la información para registrarte
+                    como aprendiz del programa ADSO.
+                </p>
+
+                <span class="register-divider"></span>
+
+            </div>
+
+            <form id="register-form" class="register-form">
+
+                <div class="form-group">
+                    <label for="nombres">Nombres</label>
+                    <input
+                        type="text"
+                        id="nombres"
+                        name="nombres"
+                        placeholder="Ingresa tus nombres"
+                        autocomplete="given-name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="apellidos">Apellidos</label>
+                    <input
+                        type="text"
+                        id="apellidos"
+                        name="apellidos"
+                        placeholder="Ingresa tus apellidos"
+                        autocomplete="family-name"
+                        required
+                    >
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="tipo-documento">Tipo de documento</label>
+                        <select
+                            id="tipo-documento"
+                            name="tipo_documento"
+                            required
+                        >
+                            <option value="" selected disabled>
+                                Selecciona una opción
+                            </option>
+                            <option value="CC">Cédula de ciudadanía</option>
+                            <option value="TI">Tarjeta de identidad</option>
+                            <option value="CE">Cédula de extranjería</option>
+                            <option value="PA">Pasaporte</option>
+                            <option value="PPT">Permiso por Protección Temporal</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="documento">Número de documento</label>
+                        <input
+                            type="text"
+                            id="documento"
+                            name="documento"
+                            placeholder="Número de documento"
+                            inputmode="numeric"
+                            autocomplete="off"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="correo">Correo electrónico</label>
+                    <input
+                        type="email"
+                        id="correo"
+                        name="correo"
+                        placeholder="ejemplo@correo.com"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="programa">Programa de formación</label>
+                    <select id="programa" name="programa" required>
+                        <option value="" selected disabled>Selecciona tu programa</option>
+                        <option value="ADSO">Análisis y Desarrollo de Software (ADSO)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="ficha">Número de ficha ADSO</label>
+                    <input
+                        type="text"
+                        id="ficha"
+                        name="ficha"
+                        placeholder="Ingresa tu número de ficha"
+                        inputmode="numeric"
+                        required
+                    >
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="clave">Contraseña</label>
+                        <input
+                            type="password"
+                            id="clave"
+                            name="clave"
+                            placeholder="Crea una contraseña"
+                            minlength="8"
+                            autocomplete="new-password"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmar-clave">Confirmar contraseña</label>
+                        <input
+                            type="password"
+                            id="confirmar-clave"
+                            name="confirmar_clave"
+                            placeholder="Repite tu contraseña"
+                            minlength="8"
+                            autocomplete="new-password"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+                <div class="terms-group">
+                    <input
+                        type="checkbox"
+                        id="terminos"
+                        name="terminos"
+                        required
+                    >
+
+                    <label for="terminos">
+                        Acepto los términos y condiciones.
+                    </label>
+                </div>
+
+                <button type="submit" class="register-button">
+                    Crear cuenta
+                </button>
+
+                <div
+                    id="register-message"
+                    class="register-message"
+                    role="status"
+                    aria-live="polite"
+                    hidden
+                ></div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+
+            <div class="footer-feature">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="M4 17 L24 7 L44 17 L24 27 Z"/>
+                    <path d="M12 22 V32 Q24 43 36 32 V22"/>
+                    <path d="M44 17 V30"/>
+                </svg>
+                <span>Formación<br>de calidad</span>
+            </div>
+
+            <span class="footer-divider"></span>
+
+            <div class="footer-feature">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="M18 29 C12 24 13 14 19 10 C25 5 34 9 35 17 C36 22 33 26 30 29"/>
+                    <path d="M19 33 H30 M20 37 H29 M23 41 H27"/>
+                    <path d="M24 2 V5 M7 12 L10 15 M40 12 L37 15"/>
+                    <path d="M24 14 L20 21 H25 L22 27 L30 18 H25 L28 14 Z"/>
+                </svg>
+                <span>Innovación</span>
+            </div>
+
+            <span class="footer-divider"></span>
+
+            <div class="footer-feature">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <circle cx="24" cy="13" r="7"/>
+                    <circle cx="9" cy="19" r="5"/>
+                    <circle cx="39" cy="19" r="5"/>
+                    <path d="M11 39 V34 C11 27 17 23 24 23 C31 23 37 27 37 34 V39 Z"/>
+                    <path d="M2 38 V34 C2 29 5 26 10 26"/>
+                    <path d="M46 38 V34 C46 29 43 26 38 26"/>
+                </svg>
+                <span>Trabajo en equipo</span>
+            </div>
+
+        </div>
+    </footer>
+    
+
+    <script src="js/registrarse.js" defer></script>
+
+</body>
+</html>
